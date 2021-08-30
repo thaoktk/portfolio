@@ -611,3 +611,99 @@ body::-webkit-scrollbar {
     border: 2px solid var(--white-color);
     color: var(--white-color);
 }
+
+.project-type {
+    width: 100%;
+    margin: 20px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.project-type__item {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--fourth-color);
+    background-color: var(--white-color);
+    color: var(--text-color);
+    font-size: 1.8rem;
+    line-height: 2rem;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.project-type__item.active {
+    transform: translate(-5px, -5px);
+    border: 1px solid var(--white-color);
+    background-color: var(--second-color);
+    color: var(--white-color);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.project-type__item:hover {
+    transform: translate(-5px, -5px);
+    border: 1px solid var(--white-color);
+    background-color: var(--second-color);
+    color: var(--white-color);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.project-category {
+    margin: 20px 0 0 0;
+}
+
+.project-category__item-wrap {
+    width: 100%;
+    display: none !important;
+    animation: projectCategoryItemOpen ease 0.8s;
+}
+
+.project-category__item-wrap.active {
+    display: block !important;
+}
+
+.project-category__item {
+    padding: 10px;
+    display: block;
+    width: 100%;
+    margin: 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: var(--white-color);
+    border: 1px solid var(--fourth-color);
+    transition: 0.5s;
+}
+
+
+.project-category__item:hover {
+    transform: translate(-5px, -5px);
+    background-color: var(--primary-color);
+    border: 1px solid var(--white-color);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.project-category__item:hover .project-category__item-desc {
+    color: var(--white-color);
+}
+
+.project-category__item-img {
+    width: 100%;
+}
+
+.project-category__img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.project-category__item-desc {
+    text-align: center;
+    margin: 20px 0 0 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 2rem;
+    color: var(--text-color);
+    transition: 0.5s;
+}
+

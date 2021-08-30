@@ -238,4 +238,8 @@
     .contact-form__item--hide-pc {
         display: flex;
     }
+
+    .project-category__item {
+        margin: 15px 0;
+    }
 }

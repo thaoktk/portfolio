@@ -12,6 +12,8 @@ const homeWorkClose = document.querySelector('.home-work__close')
 const imageText = document.querySelector('.image-wrap__text')
 const tabPanes = document.querySelectorAll('.tab-pane')
 const progress = document.querySelectorAll('.progress-bar__sub-progress')
+const projectTypeItem = document.querySelectorAll('.project-type__item')
+const projectCategoryItem = document.querySelectorAll('.project-category__item-wrap')
 
 line.style.left = headerItemActive.offsetLeft + 'px'
 line.style.width = headerItemActive.offsetWidth + 'px'
@@ -118,4 +120,26 @@ imageText.innerHTML = imageText.innerText.split("").map(
     (char, i) => `<span style="transform: rotate(${i * 9.5}deg)">${char}</span>`
 ).join("")
 
+projectTypeItem.forEach((itemType) => {
+    const itemTypeValue = itemType.getAttribute('data-filter')
+    if (itemTypeValue === 'all') {
+        projectCategoryItem.forEach(itemCategory => {
+            itemCategory.classList.add('active')
+        })
+    }
     
+    itemType.onclick = function() {
+        document.querySelector('.project-type__item.active').classList.remove("active");
+        this.classList.add("active");
+
+        projectCategoryItem.forEach(itemCategory => {
+            if (itemTypeValue === 'all') {
+                itemCategory.classList.add('active')
+            } else if (itemCategory.getAttribute('data-category') === itemTypeValue) {
+                itemCategory.classList.add('active')
+            } else {
+                itemCategory.classList.remove('active')
+            }
+        })
+    }
+})
