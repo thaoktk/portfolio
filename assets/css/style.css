@@ -18,6 +18,7 @@ html {
 body {
     min-height: 100vh;
     width: 100%;
+    cursor: url('../img/33866\ \(1\).png'), auto;
 }
 
 body::-webkit-scrollbar {

@@ -121,7 +121,6 @@
         top: 0;
         right: 0;
         bottom: 0;
-        max-width: 450px;
         width: 100%;
         background-color: var(--white-color);
         opacity: 0;
@@ -139,7 +138,7 @@
     .header-list {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
     }
     

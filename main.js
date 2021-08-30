@@ -56,11 +56,6 @@ headerClose.onclick = function() {
     headerModal.classList.remove('active')
 }
 
-headerModal.onclick = function() {
-    headerList.classList.remove('active')
-    headerModal.classList.remove('active')
-}
-
 homeViewAll.onclick = function() {
     homeWorkModal.classList.add('active')
 }
