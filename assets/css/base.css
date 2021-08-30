@@ -1,0 +1,59 @@
+:root {
+    --white-color: #fff;
+    --text-color: rgb(29, 28, 28);
+    --primary-color: #f7bfbe;
+    --second-color: #d37b7a;
+    --third-color: #a54543;
+    --fourth-color: #ccc;
+}
+
+.line {
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 3px;
+    background-color: var(--primary-color);
+    width: 0;
+    border-radius: 2px;
+    transition: 0.5s ease-in-out;
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes rotateText {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes tabPaneOpen {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes progress {
+    from {
+        width: 30%;
+    }
+    to {
+        width: var(--progress);
+    }
+}
