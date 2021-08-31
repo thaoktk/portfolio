@@ -126,7 +126,7 @@
         opacity: 0;
         visibility: hidden;
         transform: translateX(100%);
-        transition: 0.5s;
+        transition: 0.8s;
     }
 
     .header-list-wrap.active {

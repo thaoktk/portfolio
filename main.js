@@ -12,13 +12,14 @@ const homeWorkClose = document.querySelector('.home-work__close')
 const imageText = document.querySelector('.image-wrap__text')
 const tabPanes = document.querySelectorAll('.tab-pane')
 const progress = document.querySelectorAll('.progress-bar__sub-progress')
-const projectTypeItem = document.querySelectorAll('.project-type__item')
+const projectFilterItem = document.querySelectorAll('.project-filter__item')
 const projectCategoryItem = document.querySelectorAll('.project-category__item-wrap')
+const hireMe = document.querySelector('.sub-section-item--hire')
 
 line.style.left = headerItemActive.offsetLeft + 'px'
 line.style.width = headerItemActive.offsetWidth + 'px'
 
-
+// navbar click show on 
 headerItem.forEach((item, index) => {
     const tabPane = tabPanes[index]
     item.onclick = function() {
@@ -47,7 +48,7 @@ headerItem.forEach((item, index) => {
 
 })
 
-
+// menu mobile
 headerMenu.onclick = function() {
     headerList.classList.add('active')
     headerModal.classList.add('active')
@@ -58,6 +59,7 @@ headerClose.onclick = function() {
     headerModal.classList.remove('active')
 }
 
+// modal view all
 homeViewAll.onclick = function() {
     homeWorkModal.classList.add('active')
 }
@@ -75,6 +77,7 @@ homeWorkModalContainer.onclick = function(e) {
     e.stopPropagation()
 }
 
+// carousel
 $('.home-work__carousel').slick({
     slidesToShow: 3,
     autoplaySpeed : 2000,
@@ -98,6 +101,7 @@ $('.home-work__carousel').slick({
     ]
 })
 
+
 $('.home-work__modal').slick({
     slidesToShow: 1,
     autoplaySpeed : 3000,
@@ -116,26 +120,28 @@ $('.home-work__modal').slick({
     ]
 })
 
+// image rotate animate
 imageText.innerHTML = imageText.innerText.split("").map(
     (char, i) => `<span style="transform: rotate(${i * 9.5}deg)">${char}</span>`
 ).join("")
 
-projectTypeItem.forEach((itemType) => {
-    const itemTypeValue = itemType.getAttribute('data-filter')
-    if (itemTypeValue === 'all') {
+
+// project filter
+projectFilterItem.forEach((itemFilter) => {
+    const itemFilterValue = itemFilter.getAttribute('data-filter')
+
+    if (itemFilterValue === 'all') {
         projectCategoryItem.forEach(itemCategory => {
             itemCategory.classList.add('active')
         })
     }
     
-    itemType.onclick = function() {
-        document.querySelector('.project-type__item.active').classList.remove("active");
+    itemFilter.onclick = function() {
+        document.querySelector('.project-filter__item.active').classList.remove("active");
         this.classList.add("active");
 
         projectCategoryItem.forEach(itemCategory => {
-            if (itemTypeValue === 'all') {
-                itemCategory.classList.add('active')
-            } else if (itemCategory.getAttribute('data-category') === itemTypeValue) {
+            if (itemFilterValue === 'all' || itemCategory.getAttribute('data-category') === itemFilterValue) {
                 itemCategory.classList.add('active')
             } else {
                 itemCategory.classList.remove('active')
