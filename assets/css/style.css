@@ -651,8 +651,8 @@ body::-webkit-scrollbar {
 
 .project-category__item-wrap {
     width: 100%;
-    display: none !important;
     animation: projectCategoryItemOpen ease 0.8s;
+    display: none !important;
 }
 
 .project-category__item-wrap.active {
@@ -709,6 +709,7 @@ body::-webkit-scrollbar {
     animation: arrowRightFadeIn ease 1s, forwards;
     display: none;
     color: var(--white-color);
+    margin-left: 8px;
 }
 
 .project-category__item:hover .project-category__item-desc-icon {

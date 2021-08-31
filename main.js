@@ -1,3 +1,4 @@
+// header
 const headerItem = document.querySelectorAll('.header-item')
 const line = document.querySelector('.line')
 const headerItemActive = document.querySelector('.header-item.active')
@@ -5,16 +6,28 @@ const headerMenu = document.querySelector('.header-menu')
 const headerClose = document.querySelector('.header-close')
 const headerList = document.querySelector('.header-list-wrap')
 const headerModal = document.querySelector('.header-modal')
+const headerItemContact = document.querySelector('.header-item.header-item--contact')
+
+// modal
 const homeViewAll = document.querySelector('.home-work__view-all')
 const homeWorkModal = document.querySelector('.modal-wrap')
 const homeWorkModalContainer = document.querySelector('.home-work__modal')
 const homeWorkClose = document.querySelector('.home-work__close')
+
+// image rotate
 const imageText = document.querySelector('.image-wrap__text')
+
+// tab pane
 const tabPanes = document.querySelectorAll('.tab-pane')
+const tabPaneContact = document.querySelector('.tab-pane.tab-pane--contact')
+
+// progress bar 
 const progress = document.querySelectorAll('.progress-bar__sub-progress')
 const projectFilterItem = document.querySelectorAll('.project-filter__item')
 const projectCategoryItem = document.querySelectorAll('.project-category__item-wrap')
-const hireMe = document.querySelector('.sub-section-item--hire')
+
+// hire me
+const hireMe = document.querySelector('.sub-section-item--contact')
 
 line.style.left = headerItemActive.offsetLeft + 'px'
 line.style.width = headerItemActive.offsetWidth + 'px'
@@ -149,3 +162,16 @@ projectFilterItem.forEach((itemFilter) => {
         })
     }
 })
+
+hireMe.onclick = function() {
+    document.querySelector('.header-item.active').classList.remove('active')
+    headerItemContact.classList.add('active')
+
+    line.style.left = headerItemContact.offsetLeft + 'px'
+    line.style.width = headerItemContact.offsetWidth + 'px'
+
+    document.querySelector('.tab-pane.active').classList.remove('active')
+    setTimeout(function() {
+        tabPaneContact.classList.add('active')
+    }, 100)
+}
