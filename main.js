@@ -1,6 +1,5 @@
 // header
 const headerItem = document.querySelectorAll('.header-item')
-const line = document.querySelector('.line')
 const headerItemActive = document.querySelector('.header-item.active')
 const headerMenu = document.querySelector('.header-menu')
 const headerClose = document.querySelector('.header-close')
@@ -42,13 +41,6 @@ function toggleMenuMobile() {
     removeActive(headerModal)
 }
 
-function moveLine(item) {
-    line.style.left = item.offsetLeft + 'px'
-    line.style.minWidth = item.offsetWidth + 'px'
-}
-
-moveLine(headerItemActive)
-
 // navbar click show on 
 headerItem.forEach((item, index) => {
     const tabPane = tabPanes[index]
@@ -62,8 +54,6 @@ headerItem.forEach((item, index) => {
         addActive(tabPane)
 
         toggleMenuMobile()
-
-        moveLine(this)
 
         if (item.classList.contains('header-item--skill')) { // ktra xem true hay false
             progress.forEach(item => addActive(item))
@@ -177,8 +167,6 @@ hireMe.onclick = function() {
     const headerItemActive = document.querySelector('.header-item.active')
     removeActive(headerItemActive)
     addActive(headerItemContact)
-
-    moveLine(headerItemContact)
 
     const tabPaneActive = document.querySelector('.tab-pane.active')
     removeActive(tabPaneActive)

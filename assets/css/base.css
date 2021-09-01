@@ -7,17 +7,6 @@
     --fourth-color: #ccc;
 }
 
-.line {
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    height: 3px;
-    background-color: var(--primary-color);
-    width: 0;
-    border-radius: 2px;
-    transition: 0.5s ease-in-out;
-}
-
 @keyframes modalOpen {
     from {
         opacity: 0;
