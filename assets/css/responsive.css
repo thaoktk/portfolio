@@ -244,3 +244,10 @@
         margin: 15px 0;
     }
 }
+
+@media (min-height: 950px) {
+    .home-portfolio {
+        height: 50vh;
+        display: flex;
+    }
+}
