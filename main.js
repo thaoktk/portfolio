@@ -29,33 +29,46 @@ const projectCategoryItem = document.querySelectorAll('.project-category__item-w
 // hire me
 const hireMe = document.querySelector('.sub-section-item--contact')
 
-line.style.left = headerItemActive.offsetLeft + 'px'
-line.style.width = headerItemActive.offsetWidth + 'px'
+function removeActive(classRemoved) {
+    classRemoved.classList.remove("active")
+}
+
+function addActive(classAdded) {
+    classAdded.classList.add('active')
+}
+
+function toggleMenuMobile() {
+    removeActive(headerList)
+    removeActive(headerModal)
+}
+
+function moveLine(item) {
+    line.style.left = item.offsetLeft + 'px'
+    line.style.minWidth = item.offsetWidth + 'px'
+}
+
+moveLine(headerItemActive)
 
 // navbar click show on 
 headerItem.forEach((item, index) => {
     const tabPane = tabPanes[index]
     item.onclick = function() {
-        document.querySelector('.header-item.active').classList.remove('active')
-        this.classList.add('active')
+        const headerItemActive = document.querySelector('.header-item.active')
+        removeActive(headerItemActive)
+        addActive(this)
 
-        document.querySelector('.tab-pane.active').classList.remove('active')
-        tabPane.classList.add('active')
+        const tabPaneActive = document.querySelector('.tab-pane.active')
+        removeActive(tabPaneActive)
+        addActive(tabPane)
 
-        headerList.classList.remove('active')
-        headerModal.classList.remove('active')
+        toggleMenuMobile()
 
-        line.style.left = this.offsetLeft + 'px'
-        line.style.width = this.offsetWidth + 'px'
+        moveLine(this)
 
         if (item.classList.contains('header-item--skill')) { // ktra xem true hay false
-            progress.forEach(item => {
-                item.classList.add('active')
-            })
+            progress.forEach(item => addActive(item))
         } else {
-            progress.forEach(item => {
-                item.classList.remove('active')
-            })
+            progress.forEach(item => removeActive(item))
         }
     }
 
@@ -63,27 +76,24 @@ headerItem.forEach((item, index) => {
 
 // menu mobile
 headerMenu.onclick = function() {
-    headerList.classList.add('active')
-    headerModal.classList.add('active')
+    addActive(headerList)
+    addActive(headerModal)
 }
 
-headerClose.onclick = function() {
-    headerList.classList.remove('active')
-    headerModal.classList.remove('active')
-}
+headerClose.addEventListener('click', toggleMenuMobile)
 
 // modal view all
 homeViewAll.onclick = function() {
-    homeWorkModal.classList.add('active')
+    addActive(homeWorkModal)
 }
 
 homeWorkClose.onclick = function(e) {
-    homeWorkModal.classList.remove('active')
+    removeActive(homeWorkModal)
     e.stopPropagation()
 }
 
 homeWorkModal.onclick = function() {
-    homeWorkModal.classList.remove('active')
+    removeActive(homeWorkModal)
 }
 
 homeWorkModalContainer.onclick = function(e) {
@@ -144,34 +154,36 @@ projectFilterItem.forEach((itemFilter) => {
     const itemFilterValue = itemFilter.getAttribute('data-filter')
 
     if (itemFilterValue === 'all') {
-        projectCategoryItem.forEach(itemCategory => {
-            itemCategory.classList.add('active')
-        })
+        projectCategoryItem.forEach(itemCategory => addActive(itemCategory))
     }
     
     itemFilter.onclick = function() {
-        document.querySelector('.project-filter__item.active').classList.remove("active");
-        this.classList.add("active");
+        const projectFilterActive = document.querySelector('.project-filter__item.active')
+        removeActive(projectFilterActive)
+        addActive(this)
 
         projectCategoryItem.forEach(itemCategory => {
             if (itemFilterValue === 'all' || itemCategory.getAttribute('data-category') === itemFilterValue) {
-                itemCategory.classList.add('active')
+                addActive(itemCategory)
             } else {
-                itemCategory.classList.remove('active')
+                removeActive(itemCategory)
             }
         })
     }
 })
 
+//  hire me
 hireMe.onclick = function() {
-    document.querySelector('.header-item.active').classList.remove('active')
-    headerItemContact.classList.add('active')
+    const headerItemActive = document.querySelector('.header-item.active')
+    removeActive(headerItemActive)
+    addActive(headerItemContact)
 
-    line.style.left = headerItemContact.offsetLeft + 'px'
-    line.style.width = headerItemContact.offsetWidth + 'px'
+    moveLine(headerItemContact)
 
-    document.querySelector('.tab-pane.active').classList.remove('active')
+    const tabPaneActive = document.querySelector('.tab-pane.active')
+    removeActive(tabPaneActive)
+
     setTimeout(function() {
-        tabPaneContact.classList.add('active')
+        addActive(tabPaneContact)
     }, 100)
 }
