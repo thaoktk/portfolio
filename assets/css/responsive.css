@@ -24,6 +24,14 @@
         transform-origin: 0 200px;
     }
 
+    .header-close {
+        width: 50px;
+        display: block;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        cursor: pointer;
+    }
 }
 
 /* mobile */
@@ -79,6 +87,15 @@
 
     .image-wrap__text span {
         font-size: 2.6rem;
+    }
+    
+    .header-close {
+        width: 50px;
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
     }
 }
 
@@ -181,25 +198,16 @@
         justify-content: center;
     }
 
-    .header-menu__icon{
+    .header-menu__icon {
         font-size: 3rem;
         line-height: 3rem;
         color: var(--text-color);
     }
-    
+
     .header-close__icon {
         font-size: 4.5rem;
         line-height: 4.5rem;
         color: var(--text-color);
-    }
-
-    .header-close {
-        width: 50px;
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        cursor: pointer;
     }
 
     .header-modal {
