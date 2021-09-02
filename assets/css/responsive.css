@@ -181,9 +181,15 @@
         justify-content: center;
     }
 
-    .header-menu__icon, .header-close__icon {
+    .header-menu__icon{
         font-size: 3rem;
         line-height: 3rem;
+        color: var(--text-color);
+    }
+    
+    .header-close__icon {
+        font-size: 4.5rem;
+        line-height: 4.5rem;
         color: var(--text-color);
     }
 
