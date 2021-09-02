@@ -722,7 +722,7 @@ body::-webkit-scrollbar {
 .project-category__item-desc-icon {
     font-size: 1.6rem;
     font-weight: 500;
-    animation: arrowRightFadeIn ease 1s, forwards;
+    animation: arrowRightFadeIn ease 1.1s infinite, forwards;
     display: none;
     color: var(--white-color);
     margin-left: 8px;
