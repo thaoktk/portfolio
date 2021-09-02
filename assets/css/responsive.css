@@ -178,6 +178,7 @@
         height: 100%;
         display: flex;
         align-items: flex-end;
+        justify-content: center;
     }
 
     .header-menu__icon, .header-close__icon {
