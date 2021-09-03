@@ -1,6 +1,3 @@
-// header
-const headerList = document.querySelector('.header-list-wrap'), 
-headerModal = document.querySelector('.header-modal')
 
 /** ===================================== FUNCTION GLOBAL ====================================================== */
 function removeActive(classRemoved) {
@@ -11,7 +8,10 @@ function addActive(classAdded) {
     classAdded.classList.add("active")
 }
 
-function toggleMenuMobile() {
+function hideMenuMobile() {
+    const headerList = document.querySelector('.header-list-wrap'), 
+    headerModal = document.querySelector('.header-modal')
+
     removeActive(headerList)
     removeActive(headerModal)
 }
@@ -30,11 +30,9 @@ function toggleMenuMobile() {
     
             removeActive(headerItemActive)
             addActive(itemHeader)
-            
             removeActive(tabPaneActive)
             addActive(tabPane)
-            
-            toggleMenuMobile()
+            hideMenuMobile()
     
             // run progress bar
             const progress = document.querySelectorAll('.progress-bar__sub-progress')
@@ -44,7 +42,6 @@ function toggleMenuMobile() {
                 progress.forEach(itemProgress => removeActive(itemProgress))
             }
         }
-    
     })
 })()
 
@@ -52,13 +49,15 @@ function toggleMenuMobile() {
 /** ===================================== MENU MOBILE ====================================================== */
 ;(() => {
     const headerMenu = document.querySelector('.header-menu'),
-    headerClose = document.querySelector('.header-close')
+    headerClose = document.querySelector('.header-close'),
+    headerList = document.querySelector('.header-list-wrap'), 
+    headerModal = document.querySelector('.header-modal')
 
     headerMenu.onclick = () => {
         addActive(headerList)
         addActive(headerModal)
     }
-    headerClose.addEventListener('click', toggleMenuMobile)
+    headerClose.addEventListener('click', hideMenuMobile)
 })()
 
 
@@ -147,8 +146,8 @@ function toggleMenuMobile() {
 
 /** ===================================== PROJECT FILTER ====================================================== */
 ;(() => {
-    const projectFilterItem = document.querySelectorAll('.project-filter__item')
-    const projectCategoryItem = document.querySelectorAll('.project-category__item-wrap')
+    const projectFilterItem = document.querySelectorAll('.project-filter__item'),
+    projectCategoryItem = document.querySelectorAll('.project-category__item-wrap')
 
     projectFilterItem.forEach((itemFilter) => {
         const itemFilterValue = itemFilter.getAttribute('data-filter')
@@ -159,6 +158,7 @@ function toggleMenuMobile() {
         
         itemFilter.onclick = () => {
             const projectFilterActive = document.querySelector('.project-filter__item.active')
+            
             removeActive(projectFilterActive)
             addActive(itemFilter)
     
@@ -179,14 +179,13 @@ function toggleMenuMobile() {
     const hireMe = document.querySelector('.sub-section-item--contact')
 
     hireMe.onclick = () => {
-        const headerItemActive = document.querySelector('.header-item.active')
-        const headerItemContact = document.querySelector('.header-item.header-item--contact')
-        const tabPaneActive = document.querySelector('.tab-pane.active')
-        const tabPaneContact = document.querySelector('.tab-pane.tab-pane--contact')
+        const headerItemActive = document.querySelector('.header-item.active'),
+        headerItemContact = document.querySelector('.header-item.header-item--contact'),
+        tabPaneActive = document.querySelector('.tab-pane.active'),
+        tabPaneContact = document.querySelector('.tab-pane.tab-pane--contact')
         
         removeActive(headerItemActive)
         addActive(headerItemContact)
-    
         removeActive(tabPaneActive)
     
         setTimeout(() => {
