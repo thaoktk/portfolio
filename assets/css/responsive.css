@@ -32,6 +32,9 @@
         right: 40px;
         cursor: pointer;
     }
+    .home-desc, .home-work {
+        padding: 10px 0 10px 0;
+    }
 }
 
 /* mobile */
